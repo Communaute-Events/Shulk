@@ -36,7 +36,7 @@ print(botnormal + " Connection...")
 
 
 def cogsload():
-    for folder in ["commands", "events"]:
+    for folder in ["commands"]:
         for filename in os.listdir(folder):
             if filename.endswith(".py"):
                 print(botloading + f"{filename[:-3]} a été chargé avec succès")

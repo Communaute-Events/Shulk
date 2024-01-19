@@ -42,15 +42,16 @@ class BanCog(commands.Cog):
 				"""Bannir les h@ck€rs"""
 
 				await member.ban(reason=raison)
-
-				embed = nextcord.Embed(title="🛡 Sécurité 🛡", color=0x00FF00)
-				embed.add_field(name=f"__**{member}**__ a été banni avec succès !", value=f"```{raison}```", inline=False)
-				embed.set_footer(text="Action effectuée par : " + ctx.author.name)
+            
+            
+				embed = nextcord.Embed(title="Modération - Mute", color=0xeb01ef)
+				embed.add_field(name="Action :", value=f"__**{member}**__ a été banni avec succès !\n```{raison}```", inline=False)
+				embed.set_footer(text="Action effectuée par : " + interaction.user.name)
 				view = Banview(member)
 				await interaction.channel.send(embed=embed, view=view)
 
 			except Exception as e:
-				embed = nextcord.Embed(title="🛡 Sécurité 🛡", color=0xFF0000)
+				embed = nextcord.Embed(title="Modération - Mute", color=0xeb01ef)
 				embed.add_field(name="Erreur", value=str(e), inline=False)
 				await interaction.channel.send(embed=embed)
 
